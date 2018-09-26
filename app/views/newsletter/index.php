@@ -9,7 +9,7 @@
             <input class="form-control text-align mb-4 <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" type="text" value="<?php echo (!empty($data['email'])) ? $data['email'] : ''; ?>" name="email" placeholder="Enter e-mail">
             <span class="invalid-feedback mb-2"><?php echo $data['email_err']; ?></span>
             <?php flash('register_success'); ?>
-            <input class="btn btn-primary btn-lg" type="submit" value="Zapisz się!"</input>
+            <input class="btn btn-primary btn-lg" type="submit" value="Zapisz się!">
           </form>
     </div>
 </div>
