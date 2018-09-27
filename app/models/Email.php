@@ -1,5 +1,4 @@
 <?php
-
 class Email {
   private $db;
 
@@ -7,13 +6,22 @@ class Email {
     $this->db = new Database;
   }
 
-  // Add Email
+    // Return E-mail
+  public function getEmails(){
+  $this->db->query('SELECT * FROM users');
+
+  $results = $this->db->resultSet();
+
+  return $results;
+  }
+
+    // Add Email
   public function addEmail($data){
     $this->db->query('INSERT INTO users (email) VALUES(:email)');
-    //Bind values
+    // Bind values
     $this->db->bind(':email', $data['email']);
 
-    //Execute
+    // Execute
     if($this->db->execute()){
       return true;
     } else {
@@ -24,7 +32,7 @@ class Email {
   // Find Email
   public function findEmail($email){
     $this->db->query('SELECT * FROM users WHERE email = :email');
-    //Bind values
+    // Bind values
     $this->db->bind(':email', $email);
 
     $row = $this->db->single();
